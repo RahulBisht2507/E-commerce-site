@@ -1,7 +1,10 @@
-import './App.css';
+import ReactDom from "react-dom/client"
+import { BrowserRouter, Routes,Route } from "react-router-dom";
 import Header from "./MyComponent/Header.js";
 import Home from "./Pages/Home.js";
+import {About} from "./Pages/About.js"
 import { useState } from 'react';
+import CartPage from "./Pages/CartPage.jsx";
 
 function App() {
 
@@ -9,7 +12,7 @@ const [cartItems, setCartItems] = useState([]);
 
   const addtocart = (product) =>{
     alert("Added To Cart"); 
-    setCartItems((prevCart) => {2
+    setCartItems((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
         console.log("Added To Cart");
@@ -24,10 +27,31 @@ const [cartItems, setCartItems] = useState([]);
 
   return (
     <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element = {<Header />}>
+        <Route index element = {<Home addtocart={addtocart}/>} />
+        <Route path="/about" element = {<About />} />
+        <Route path="/cart" element = {<CartPage  cartItem={cartItems} updateCart={setCartItems}/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
+
+
+
+
+    {/* <div style={{
+      backgroundColor:"#EDE8F5"
+    }}>
     <Header></Header>
     <Home addtocart={addtocart}></Home>
+    </div> */}
     </>
   );
 }
+
+const root = ReactDom.createRoot(document.getElementById('root'));
+root.render(<App />);
 
 export default App;

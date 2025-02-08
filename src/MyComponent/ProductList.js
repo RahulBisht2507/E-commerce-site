@@ -1,30 +1,36 @@
 import React from 'react'
 import { ProductCard } from './ProductCard'
+import image1 from "./ProductImages/Purse.webp"
+import image2 from "./ProductImages/Shoes.jpg"
+import image3 from "./ProductImages/what.png"
 
 const products = [
     {
         id: 1,
-        image: "./ProductImages/Purse.webp",
-        name: 'Product 1',
-        price: 50
+        image: image1,
+        name: 'Purse',
+        price: 50,
+        desc: 'This Purse is made up of leather with very little artifaction'
     },
     {
         id: 2,
-        image: "./ProductImages/Shoes.jpg",
+        image: image1,
         name: 'Product 2',
-        price: 100
+        price: 100,
+        desc: 'this product desc is yet to known and published'
     },
     {
         id: 3,
-        image: "./ProductImages/what.png",
+        image: image1,
         name: 'Product 3',
-        price: 150
+        price: 150,
+        desc: 'this product desc is yet to known and published'
     }
 ]
 
 export const ProductList = ({addtocart}) => {
   return (
-    <div  style={{display: 'flex',gap:"20px", marginLeft: "190px",marginTop: "120px"}} >
+    <div  style={{display: 'flex',gap:"20px", marginLeft: "300px",marginTop: "80px", paddingBottom: "80px"}} >
         {products.map((product) =>(
             <ProductCard key = {product.id} product= {product} addtocart={addtocart} />
         ))}
