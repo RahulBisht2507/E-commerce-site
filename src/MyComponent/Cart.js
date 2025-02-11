@@ -19,7 +19,7 @@ export const Cart = ({cartItems,updateCart}) => {
   return (
     <div>
     {cartItems.map((item)=> (
-      <div key={item.id} style={{backgroundColor: "yellow", marginLeft: "5px",border: "2px solid black",display: "inline-flex"}}>
+      <div key={item.id} style={{backgroundColor: "yellow", marginLeft: "5px",border: "2px solid black",display: "inline-flex",width: "500px"}}>
         <div>
           <img src={item.image} style={{width: "200px",height: "200px",}}></img>
         </div>
