@@ -3,6 +3,7 @@ import { BrowserRouter, Routes,Route } from "react-router-dom";
 import Header from "./MyComponent/Header.js";
 import Home from "./Pages/Home.js";
 import {About} from "./Pages/About.js"
+import {CheckoutPage} from "./Pages/CheckoutPage.jsx"
 import { useState } from 'react';
 import CartPage from "./Pages/CartPage.jsx";
 
@@ -32,7 +33,8 @@ const [cartItems, setCartItems] = useState([]);
         <Route path="/" element = {<Header />}>
         <Route index element = {<Home addtocart={addtocart}/>} />
         <Route path="/about" element = {<About />} />
-        <Route path="/cart" element = {<CartPage  cartItem={cartItems} updateCart={setCartItems}/>} />
+        <Route path="/checkout" element = {<CheckoutPage cartItems= {cartItems} />} />
+        <Route path="/cart" element = {<CartPage  cartItems={cartItems} updateCart={setCartItems}/>} />
         </Route>
       </Routes>
     </BrowserRouter>
